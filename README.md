@@ -8,6 +8,8 @@ The core idea behind this app was that every social interaction with a group of 
 
 https://youtu.be/WwheO2-oJHg
 
+(Note that the Tab Bar was implemented before Snapchat released their version. They copied us!)
+
 ![Alt text](https://user-images.githubusercontent.com/10662653/29693043-482cec3a-88e8-11e7-89a9-5c68d1c0727b.jpg  "Itunes Connect")
 
 ![Alt text](https://user-images.githubusercontent.com/10662653/29693045-4aa5a8bc-88e8-11e7-8cc9-895cadc6da82.jpg  "Itunes Connect")
