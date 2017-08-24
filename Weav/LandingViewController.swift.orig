@@ -1,0 +1,630 @@
+//
+// LandingPage.swift
+//
+//
+// Created by Aditya Garg on 12/26/15
+//
+//
+//
+//
+
+import UIKit
+import AVFoundation
+import AVKit
+import Parse
+import FBSDKLoginKit
+
+class LandingPageViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate, BWWalkthroughViewControllerDelegate {
+    
+    var player: AVPlayer?
+    var welcomeLabel = UIImageView()
+    let username = UITextField()
+    let password = UITextField()
+    let email = UITextField()
+    var loginTop = NSLayoutConstraint()
+    var loginTop2 = NSLayoutConstraint() //To switch constraints from bottom of password and email
+    let loginBtn = UIButton(frame: CGRectMake(40, 360, 240, 40))
+    let switchBtn = UIButton(frame: CGRectMake(40, 420, 240, 40))
+    var switcher = 0 //State of the loginBtn
+    let loginView : FBSDKLoginButton = FBSDKLoginButton()
+    var fbUserName : NSString = ""
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            //User is already logged in, do work such as go to next view controller.
+            //TEMPORARY FIX UNTIL IMPLEMENT ADDING FB USERS TO PARSE
+            self.performSegueWithIdentifier("toMainVC", sender: self)
+        }
+        else
+        {
+            loginView.center.x = self.view.center.x
+            loginView.center.y = self.view.center.y + 198
+            
+            //change this if we want to ask the user for more permissions later
+            loginView.readPermissions = ["public_profile", "email", "user_friends"]
+            loginView.delegate = self
+            
+        }
+        
+        let myPlayerView = UIView(frame: self.view.bounds)
+        view.addSubview(myPlayerView)
+        
+        // Load the video from the app bundle.
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("lpBack", withExtension: "mp4")!
+        
+        player = AVPlayer(URL: videoURL)
+        player?.actionAtItemEnd = .None
+        player?.muted = true
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.zPosition = -1
+        playerLayer.frame = view.frame
+        playerLayer.position = CGPoint.init(x: self.view.center.x, y: self.view.center.y+30)
+        view.layer.addSublayer(playerLayer)
+        player?.play()
+        view.backgroundColor = UIColor.blackColor()
+        
+        //loop video
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "loopVideo",
+            name: AVPlayerItemDidPlayToEndTimeNotification,
+            object: nil)
+        
+        let imageName = "W + EAV.png"
+        let image = UIImage(named: imageName)
+        welcomeLabel = UIImageView(image: image!)
+        welcomeLabel.frame = CGRectMake(0, 100, 100, 100)
+        
+        self.view.addSubview(welcomeLabel)
+        welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        let welcomeLabelTop =  NSLayoutConstraint(
+            item: welcomeLabel,
+            attribute:.Top,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Top,
+            multiplier: 1.0,
+            constant: 100)
+        let welcomeLabelCenter = welcomeLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        NSLayoutConstraint.activateConstraints([welcomeLabelTop, welcomeLabelCenter])
+        
+        username.frame = CGRectMake(40, 360, self.view.bounds.size.width, 50)
+        username.attributedPlaceholder = NSAttributedString(string:"User Name",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        username.borderStyle = UITextBorderStyle.Line
+        username.textColor = UIColor.whiteColor()
+        username.layer.borderColor = UIColor.darkGrayColor().CGColor
+        username.backgroundColor = UIColor.darkGrayColor()
+        username.layer.borderWidth = 1
+        username.textRectForBounds(CGRectInset(username.bounds, 10, 10))
+        //ICONS
+        //        let imageView = UIImageView();
+        //        imageView.frame = CGRect(x:10,y:10,width: username.frame.height, height: 50)
+        //        let image = UIImage(named: "user.jpeg");
+        //        imageView.image = image;
+        //        username.leftView = imageView;
+        //        username.leftViewMode = UITextFieldViewMode.Always
+        //        self.view.addSubview(imageView)
+        
+        // barbaric implementation of text inset
+        let usernameInset = UITextView()
+        usernameInset.frame = CGRect(x:10, y:10, width: 10, height: username.frame.height)
+        usernameInset.backgroundColor = username.backgroundColor
+        username.leftView = usernameInset;
+        username.leftViewMode = UITextFieldViewMode.Always
+        usernameInset.userInteractionEnabled = false;
+        self.view.addSubview(usernameInset)
+        
+        username.addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        self.view.addSubview(username)
+        username.translatesAutoresizingMaskIntoConstraints = false
+        let usernameTop =  NSLayoutConstraint(
+            item: username,
+            attribute:.Top,
+            relatedBy: .Equal,
+            toItem: welcomeLabel,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 30)
+        let usernameCenter = username.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        let usernameHeight = NSLayoutConstraint(item: username, attribute:
+            .Height, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: 50)
+        let usernameWidth = NSLayoutConstraint(item: username, attribute:
+            .Width, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: self.view.bounds.size.width)
+        NSLayoutConstraint.activateConstraints([usernameTop, usernameCenter, usernameHeight, usernameWidth])
+        
+        password.frame = CGRectMake(40, 360, self.view.bounds.size.width, 50)
+        password.attributedPlaceholder = NSAttributedString(string:"Password",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        password.center.x = self.view.center.x
+        password.center.y = self.view.center.y - 89
+        password.borderStyle = UITextBorderStyle.Line
+        password.textColor = UIColor.whiteColor()
+        password.layer.borderColor = UIColor.darkGrayColor().CGColor
+        password.backgroundColor = UIColor.darkGrayColor()
+        password.layer.borderWidth = 1
+        password.secureTextEntry = true
+        
+        // barbaric text inset implementation
+        let passwordInset = UITextView()
+        passwordInset.frame = CGRect(x:10, y:10, width: 10, height: username.frame.height)
+        passwordInset.backgroundColor = username.backgroundColor
+        password.leftView = passwordInset;
+        password.leftViewMode = UITextFieldViewMode.Always
+        passwordInset.userInteractionEnabled = false;
+        self.view.addSubview(passwordInset)
+        
+        password.addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        self.view.addSubview(password)
+        password.translatesAutoresizingMaskIntoConstraints = false
+        let passwordTop =  NSLayoutConstraint(
+            item: password,
+            attribute:.Top,
+            relatedBy: .Equal,
+            toItem: username,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 1)
+        let passwordCenter = password.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        let passwordHeight = NSLayoutConstraint(item: password, attribute:
+            .Height, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: 50)
+        let passwordWidth = NSLayoutConstraint(item: password, attribute:
+            .Width, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: self.view.bounds.size.width)
+        NSLayoutConstraint.activateConstraints([passwordTop, passwordCenter, passwordHeight, passwordWidth])
+        
+        email.frame = CGRectMake(40, 360, self.view.bounds.size.width, 50)
+        email.attributedPlaceholder = NSAttributedString(string:"Email",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        email.center.x = self.view.center.x
+        email.center.y = self.view.center.y - 38
+        email.borderStyle = UITextBorderStyle.Line
+        email.textColor = UIColor.whiteColor()
+        email.layer.borderColor = UIColor.darkGrayColor().CGColor
+        email.backgroundColor = UIColor.darkGrayColor()
+        email.layer.borderWidth = 1
+        email.alpha = 0.0
+        
+        // absolute barbarism follows
+        let emailInset = UITextView()
+        emailInset.frame = CGRect(x:10, y:10, width: 10, height: username.frame.height)
+        emailInset.backgroundColor = username.backgroundColor
+        email.leftView = emailInset;
+        email.leftViewMode = UITextFieldViewMode.Always
+        emailInset.userInteractionEnabled = false;
+        self.view.addSubview(emailInset)
+        
+        email.addTarget(self, action: "textFieldChanged:", forControlEvents: .EditingChanged)
+        self.view.addSubview(email)
+        email.translatesAutoresizingMaskIntoConstraints = false
+        let emailTop =  NSLayoutConstraint(
+            item: email,
+            attribute:.Top,
+            relatedBy: .Equal,
+            toItem: password,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 1)
+        let emailCenter = email.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        let emailHeight = NSLayoutConstraint(item: email, attribute:
+            .Height, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: 50)
+        let emailWidth = NSLayoutConstraint(item: email, attribute:
+            .Width, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: self.view.bounds.size.width)
+        NSLayoutConstraint.activateConstraints([emailTop, emailCenter, emailHeight, emailWidth])
+        
+        
+        loginBtn.layer.borderColor = UIColor.darkGrayColor().CGColor
+        loginBtn.layer.borderWidth = 2
+        loginBtn.titleLabel!.font = UIFont.systemFontOfSize(24)
+        loginBtn.tintColor = UIColor.whiteColor()
+        loginBtn.setTitle("Login", forState: UIControlState.Normal)
+        loginBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        //loginBtn.center.x = self.view.center.x
+        //loginBtn.center.y = self.view.center.y - 33
+        //loginBtn.enabled = false
+        self.view.addSubview(loginBtn)
+        loginBtn.addTarget(self, action: "Action:", forControlEvents: UIControlEvents.TouchUpInside)
+        loginBtn.translatesAutoresizingMaskIntoConstraints = false
+        loginTop =  NSLayoutConstraint(
+            item: loginBtn,
+            attribute:.Top,
+            relatedBy: .Equal,
+            toItem: password,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 5)
+        loginTop2 =  NSLayoutConstraint(
+            item: loginBtn,
+            attribute:.Top,
+            relatedBy: .Equal,
+            toItem: email,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 5)
+        let loginCenter = loginBtn.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+        let loginHeight = NSLayoutConstraint(item: loginBtn, attribute:
+            .Height, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: 50)
+        let loginWidth = NSLayoutConstraint(item: loginBtn, attribute:
+            .Width, relatedBy: .Equal, toItem: nil,
+            attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0,
+            constant: self.view.bounds.size.width)
+        NSLayoutConstraint.activateConstraints([loginTop, loginCenter, loginHeight, loginWidth])
+        
+        switchBtn.titleLabel!.font = UIFont.systemFontOfSize(17)
+        switchBtn.tintColor = UIColor.whiteColor()
+        switchBtn.setTitle("Or, sign up", forState: UIControlState.Normal)
+        switchBtn.center.x = self.view.center.x
+        switchBtn.center.y = self.view.center.y + 250
+        self.view.addSubview(switchBtn)
+        switchBtn.addTarget(self, action: "switcher:", forControlEvents: UIControlEvents.TouchUpInside)
+<<<<<<< HEAD
+
+=======
+//        let switchBottom =  NSLayoutConstraint(
+//            item: switchBtn,
+//            attribute:.Bottom,
+//            relatedBy: .Equal,
+//            toItem: view,
+//            attribute: .Bottom,
+//            multiplier: 1.0,
+//            constant: 50)
+//        NSLayoutConstraint.activateConstraints([switchBottom])
+>>>>>>> dbe9373514889b409ea449f68809efd61de1dd70
+        
+        
+        username.delegate = self
+        password.delegate = self
+        email.delegate = self
+        username.autocorrectionType = .No
+        password.autocorrectionType = .No
+        email.autocorrectionType = .No
+        username.autocapitalizationType = .None
+        password.autocapitalizationType = .None
+        password.autocapitalizationType = .None
+        username.clearButtonMode = UITextFieldViewMode.WhileEditing
+        password.clearButtonMode = UITextFieldViewMode.WhileEditing
+        email.clearButtonMode = UITextFieldViewMode.WhileEditing
+        
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
+        
+        self.view.addSubview(loginView)
+
+        
+    }
+<<<<<<< HEAD
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func showTutorial()
+    {
+=======
+//    func showTutorial()
+//    {
+>>>>>>> dbe9373514889b409ea449f68809efd61de1dd70
+//        let walkthroughVC = self.storyboard?.instantiateViewControllerWithIdentifier("walkthrough") as! BWWalkthroughViewController
+//        let pageOne = self.storyboard?.instantiateViewControllerWithIdentifier("pageOne")
+//        let pageTwo = self.storyboard?.instantiateViewControllerWithIdentifier("pageTwo")
+//        let pageThree = self.storyboard?.instantiateViewControllerWithIdentifier("pageThree")
+//        let pageFour = self.storyboard?.instantiateViewControllerWithIdentifier("pageFour")
+//        
+//        walkthroughVC.delegate = self
+//        
+//        walkthroughVC.addViewController(pageOne!)
+//        walkthroughVC.addViewController(pageTwo!)
+//        walkthroughVC.addViewController(pageThree!)
+//        walkthroughVC.addViewController(pageFour!)
+//        self.presentViewController(walkthroughVC, animated: true, completion: nil)
+//        
+//    }
+    func walkthroughCloseButtonPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            //TEMPORARY FIX UNTIL IMPLEMENT ADDING FB USERS TO PARSE
+            self.performSegueWithIdentifier("toMainVC", sender: self)
+        }
+        let currentUser = PFUser.currentUser()
+        if (currentUser != nil) {
+            self.performSegueWithIdentifier("toMainVC", sender: self)
+        }
+        
+        
+        //Tutorial stuff
+//        let userdefaults = NSUserDefaults.standardUserDefaults()
+//        if !userdefaults.boolForKey("hasAlreadyShowedTutorial")
+//        {
+//            showTutorial()
+//            
+//            userdefaults.setBool(true, forKey: "hasAlreadyShowedTutorial")
+//            userdefaults.synchronize()
+//        }
+        
+        
+        
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    func loopVideo() {
+        player?.seekToTime(kCMTimeZero)
+        player?.play()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    //    // placeholder position
+    //    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    //        return CGRectInset(bounds, 10, 10)
+    //    }
+    //    // text position
+    //    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    //        return CGRectInset(bounds, 10, 10)
+    //    }
+    
+    func textFieldChanged(textField: UITextField) {
+        if(self.switcher == 0){
+            if (!username.text!.isEmpty  && !password.text!.isEmpty){// Text field converted to an Int
+                loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
+                //loginBtn.enabled = true
+            } else {
+                loginBtn.layer.borderColor = UIColor.darkGrayColor().CGColor
+                //loginBtn.enabled = false
+            }
+        }
+        else if(self.switcher == 1){
+            if (!username.text!.isEmpty  && !password.text!.isEmpty && !email.text!.isEmpty){
+                loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
+                //loginBtn.enabled = true
+            } else {
+                loginBtn.layer.borderColor = UIColor.darkGrayColor().CGColor
+                //loginBtn.enabled = false
+            }
+            
+        }
+    }
+    
+    
+    func login() {
+        var displayError = ""
+        if username.text == "" && password.text == "" {
+            displayError = "You must enter a username and password"
+        } else if username.text == ""{
+            displayError = "You must enter a username"
+        } else if password.text == "" {
+            displayError = "You must enter a password"
+        }
+        
+        if displayError != "" && self.switcher == 0 {
+            displayAlert("Mistake", displayError: displayError)
+        } else{
+            PFUser.logInWithUsernameInBackground(self.username.text!, password: self.password.text!){               (success, loginError) in
+                if loginError == nil {
+                    self.performSegueWithIdentifier("toMainVC", sender: self)
+                    
+                } else {
+                    if let errorString = loginError!.userInfo["error"] as? NSString {
+                        displayError = errorString as String
+                    } else {
+                        displayError = "00ps, something went wrong, please try again later"
+                    }
+                    
+                    self.displayAlert("Could Not Login", displayError: displayError)
+                    
+                }
+            }
+        }
+    }
+    
+    func signUp() {
+        
+        var displayError = "You forgot to enter a"
+        if username.text == "" {
+            displayError += " User Name"
+        }
+        
+        if password.text == ""{
+            if displayError != "You forgot to enter a" {
+                displayError += ", Password"
+            } else {
+                displayError += " Password"
+            }
+        }
+        
+        if email.text == ""{
+            if displayError != "You forgot to enter a" {
+                displayError += ", and Email Address"
+            } else {
+                displayError += "n Email Address"
+            }
+        }
+        
+        if (displayError != "You forgot to enter a" && self.switcher == 1) {
+            displayAlert("Mistake", displayError: displayError)
+        } else{
+            
+            let user = PFUser()
+            user.username = self.username.text!
+            user.password = self.password.text!
+            user.email = self.email.text!
+            
+            user.signUpInBackgroundWithBlock { (succeeded, signupError) -> Void in
+                if signupError == nil {
+                    self.performSegueWithIdentifier("toMainVC", sender: self)
+                } else {
+                    if let error = signupError!.userInfo["error"] as? NSString{
+                        displayError = error as String
+                    } else {
+                        displayError = "00ps, Please try again later"
+                    }
+                    self.displayAlert("Mistake", displayError: displayError)
+                }
+            }
+        }
+    }
+    
+    
+    func Action(sender:UIButton!)
+    {
+        if(self.switcher == 0){
+            login()
+        }
+        else if(self.switcher == 1){
+            signUp()
+        }
+    }
+    
+    func switcher(sender: UIButton!)
+    {
+        if(self.switcher == 0){ //switching to SignUp state
+            UIView.animateWithDuration(0.3, animations: {
+                NSLayoutConstraint.deactivateConstraints([self.loginTop])
+                self.loginBtn.center.y += 50
+                NSLayoutConstraint.activateConstraints([self.loginTop2])
+            })
+            UIView.animateWithDuration(1,
+                delay: 0,
+                options: [],
+                animations:{
+                    self.loginBtn.titleLabel?.alpha = 0
+                    self.loginBtn.setTitle("Sign Up", forState: UIControlState.Normal)
+                    self.switchBtn.setTitle("Or, login", forState: UIControlState.Normal)
+                    self.loginBtn.titleLabel?.alpha = 1
+                },
+                completion: nil)
+            //self.email.fadeIn(0.5)
+            if (!username.text!.isEmpty  && !password.text!.isEmpty && !email.text!.isEmpty){//
+                loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
+                //loginBtn.enabled = false
+            } else {
+                loginBtn.layer.borderColor = UIColor.darkGrayColor().CGColor
+                //loginBtn.enabled = true
+            }
+            
+            self.switcher = 1
+        }
+        else if (self.switcher == 1){ //going to Login
+            UIView.animateWithDuration(0.3, animations: {
+                NSLayoutConstraint.deactivateConstraints([self.loginTop2])
+                self.loginBtn.center.y -= 50
+                NSLayoutConstraint.activateConstraints([self.loginTop])
+            })
+            
+            UIView.animateWithDuration(0.5,
+                delay: 0,
+                options: [],
+                animations:{
+                    self.loginBtn.titleLabel?.alpha = 0
+                    self.loginBtn.setTitle("Login", forState: UIControlState.Normal)
+                    self.switchBtn.setTitle("Or, sign up", forState: UIControlState.Normal)
+                    self.loginBtn.titleLabel?.alpha = 1
+                },
+                completion: nil)
+            
+            //self.email.fadeOut(0.1)
+            if (!username.text!.isEmpty  && !password.text!.isEmpty){
+                loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
+                //loginBtn.enabled = true
+            } else {
+                loginBtn.layer.borderColor = UIColor.darkGrayColor().CGColor
+                //loginBtn.enabled = false
+            }
+            
+            self.switcher = 0
+        }
+        
+    }
+    
+    
+    func displayAlert(title: String, displayError: String){
+        let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {
+            action in alert.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print("User Logged In")
+        self.performSegueWithIdentifier("toMainVC", sender: self)
+        if ((error) != nil)
+        {
+            // Process error
+        }
+        else if result.isCancelled {
+            // Handle cancellations
+        }
+        else {
+            // If you ask for multiple permissions at once, you
+            // should check if specific permissions missing
+            if result.grantedPermissions.contains("email")
+            {
+                // Do work
+                print("FB Login Button was pressed")
+            }
+            
+            self.returnUserData()
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("User Logged Out")
+    }
+    
+    func returnUserData()
+    {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email,name"])
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                print("fetched user: \(result)")
+                self.fbUserName = result.valueForKey("name") as! NSString
+                let userEmail : NSString = result.valueForKey("email") as! NSString
+            }
+        })
+    }
+}

@@ -1,0 +1,141 @@
+//
+//  TabBarController.swift
+//  Weav
+//
+//  Created by Charles Niu on 4/2/16.
+//  Copyright © 2016 Soccerball Squad. All rights reserved.
+//
+
+import UIKit
+import SlidingTabBar
+
+
+class TabBarController: UITabBarController, SlidingTabBarDataSource, SlidingTabBarDelegate, UITabBarControllerDelegate {
+    
+    var tabBarView: SlidingTabBar!
+    var prevSelectedIndex : Int = 1
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let bgImg = UIImage(named: "bgimg")
+        self.tabBar.shadowImage = bgImg
+        self.tabBar.backgroundImage = bgImg
+        self.tabBar.alpha = 0.8
+<<<<<<< HEAD
+=======
+        
+        //reportImage.addTarget(self, action: "reportClicked", forControlEvents: .TouchUpInside)
+
+    }
+
+    
+    // MARK: - SlidingTabBarDataSource
+    
+    func tabBarItemsInSlidingTabBar(tabBarView: SlidingTabBar) -> [UITabBarItem] {
+        return tabBar.items!
+>>>>>>> dbe9373514889b409ea449f68809efd61de1dd70
+    }
+    
+    // MARK: - SlidingTabBarDelegate
+    let circleLayer = CAShapeLayer()
+    var circlePath = UIBezierPath()
+    var circleView = UIView()
+    var circleRadius = CGFloat()
+    
+
+    func didSelectViewController(tabBarView: SlidingTabBar, atIndex index: Int) {
+        prevSelectedIndex = self.selectedIndex
+        self.selectedIndex = index
+        
+        if (selectedIndex == 1) {
+            UIView.animateWithDuration(0.5, delay: 0.3, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                tabBarView.selectedTabBarItemTintColor = UIColor.whiteColor()
+
+                self.circleView.alpha = 1
+                self.circleView.transform = CGAffineTransformIdentity
+                }, completion: nil)
+            
+            let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            defaults.setBool(true, forKey: "can use camera")
+
+        }
+        else {
+            UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                tabBarView.selectedTabBarItemTintColor = UIColor.clearColor()
+
+                self.circleView.alpha = 0
+                self.circleView.transform = CGAffineTransformScale(self.circleView.transform, 0.1, 0.1)
+                }, completion: nil)
+        }
+    }
+    
+    // MARK: - UITabBarControllerDelegate
+    
+    func tabBarController(tabBarController: UITabBarController, animationControllerForTransitionFromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        // use same duration as for tabBarView.slideAnimationDuration
+        return SlidingTabAnimatedTransitioning(transitionDuration: 0.6)
+    }
+
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tabBar.hidden = true
+        self.selectedIndex = 1
+        self.delegate = self
+        // Do any additional setup after loading the view.
+        self.tabBar.translucent = true
+        
+        
+        //load slidingtabbar cocoapod
+        tabBarView = SlidingTabBar(frame: self.tabBar.frame, initialTabBarItemIndex: self.selectedIndex)
+        tabBarView.tabBarBackgroundColor = UIColor.blackColor()
+        tabBarView.tabBarItemTintColor = UIColor.grayColor()
+        tabBarView.selectedTabBarItemTintColor = UIColor.whiteColor()
+        tabBarView.selectedTabBarItemColors = [UIColor.clearColor(), UIColor.clearColor(), UIColor.clearColor()]
+        tabBarView.slideAnimationDuration = 0.6
+        tabBarView.datasource = self
+        tabBarView.delegate = self
+        tabBarView.setup()
+        
+        self.view.addSubview(tabBarView)
+        
+        
+        
+        //initialize camera circle
+        let tabBarItemWidth = tabBarView.frame.width / CGFloat(tabBarItemsInSlidingTabBar(tabBarView).count + 1)
+        circleRadius = tabBarItemWidth * 4/5
+        circleView = UIView(frame: CGRect(x: circleRadius*3/2 , y: -circleRadius/2, width: tabBarItemWidth, height: tabBarView.frame.height))
+        circlePath = UIBezierPath(arcCenter: CGPoint(x: circleRadius,y: circleRadius/2), radius: CGFloat(circleRadius * 3/6), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+        circleLayer.path = circlePath.CGPath
+        circleLayer.fillColor = UIColor.whiteColor().CGColor
+        circleLayer.lineWidth = 0.0
+        circleLayer.borderColor = UIColor.whiteColor().CGColor
+        circleLayer.borderWidth = 0.5
+        circleView.layer.addSublayer(circleLayer)
+        circleView.alpha = 1
+        tabBarView.addSubview(circleView)
+        tabBarView.sendSubviewToBack(circleView)
+
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

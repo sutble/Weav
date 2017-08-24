@@ -1,0 +1,39 @@
+PODS:
+  - Bolts/Tasks (1.7.0)
+  - BWWalkthrough (1.0.1)
+  - CameraEngine (0.9)
+  - DZNEmptyDataSet (1.7.3)
+  - FBAnnotationClusteringSwift (1.0.1)
+  - IGLDropDownMenu (1.5.0)
+  - MBProgressHUD (0.9.2)
+  - Parse (1.13.0):
+    - Bolts/Tasks (~> 1.6)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - SlidingTabBar (0.1.0)
+
+DEPENDENCIES:
+  - BWWalkthrough
+  - CameraEngine
+  - DZNEmptyDataSet
+  - FBAnnotationClusteringSwift
+  - IGLDropDownMenu
+  - MBProgressHUD (~> 0.9.2)
+  - Parse
+  - SDWebImage (~> 3.7)
+  - SlidingTabBar
+
+SPEC CHECKSUMS:
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  BWWalkthrough: 760b70d2a1b3f970a520806b771aa3f787fdc4cf
+  CameraEngine: 503794ab0a27b1a69f6fa3cc8378132066e8251a
+  DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
+  FBAnnotationClusteringSwift: a1f4c07f5472b13acd69de04c61e68e2d7daaad3
+  IGLDropDownMenu: 1ce06c17b4846f784e2b610f90bd741ab2037f2c
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SlidingTabBar: fe3797694f9152869d80bd046f69b98e2d5deafc
+
+COCOAPODS: 0.39.0

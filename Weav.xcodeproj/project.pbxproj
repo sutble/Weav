@@ -1,0 +1,703 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		181242D71C9E2A0D001B8F28 /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181242D61C9E2A0D001B8F28 /* BWWalkthroughPageViewController.swift */; };
+		181242D91C9E2A27001B8F28 /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181242D81C9E2A27001B8F28 /* BWWalkthroughViewController.swift */; };
+		181242E81C9F314C001B8F28 /* lpBack.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 181242E61C9F314C001B8F28 /* lpBack.mp4 */; };
+		1813CF8E1C91262600CC7B26 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813CF8D1C91262600CC7B26 /* LandingViewController.swift */; };
+		181926661CB1F4A500EFD092 /* Weav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181926651CB1F4A500EFD092 /* Weav.swift */; };
+		181A81231CCC0A3C00C34E2A /* foggyAF.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 181A81221CCC0A3C00C34E2A /* foggyAF.mp4 */; };
+		181A81251CCC10BE00C34E2A /* foggyAF_rotated.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 181A81241CCC10BE00C34E2A /* foggyAF_rotated.mp4 */; };
+		181A81271CCC119600C34E2A /* clump.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 181A81261CCC119600C34E2A /* clump.mp4 */; };
+		181A81291CCC123C00C34E2A /* clump_rotated.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 181A81281CCC123C00C34E2A /* clump_rotated.mp4 */; };
+		182235171C87FF4500C4D41A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182235161C87FF4500C4D41A /* AppDelegate.swift */; };
+		182235191C87FF4500C4D41A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182235181C87FF4500C4D41A /* ViewController.swift */; };
+		1822351C1C87FF4500C4D41A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822351A1C87FF4500C4D41A /* Main.storyboard */; };
+		182235211C87FF4500C4D41A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1822351F1C87FF4500C4D41A /* LaunchScreen.storyboard */; };
+		3C320B271CB03C6A0027E236 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C320B261CB03C6A0027E236 /* DiscoverViewController.swift */; };
+		3C320B2B1CB06B0A0027E236 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C320B2A1CB06B0A0027E236 /* EventsViewController.swift */; };
+		3C320B2D1CB06B210027E236 /* EventMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C320B2C1CB06B210027E236 /* EventMapViewController.swift */; };
+		3C3AA9261CD0B1D60083A83E /* cancelImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AA9251CD0B1D60083A83E /* cancelImage.png */; };
+		3C3AA92D1CD0E31C0083A83E /* BackgroundVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AA92C1CD0E31C0083A83E /* BackgroundVid.mp4 */; };
+		3C3AA92F1CD0E3690083A83E /* WeavOmbreBackground8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AA92E1CD0E3690083A83E /* WeavOmbreBackground8.png */; };
+		3C3AA9311CD0E3AC0083A83E /* White Weav Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C3AA9301CD0E3AC0083A83E /* White Weav Logo.png */; };
+		3C3AA9331CD0E5370083A83E /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3AA9321CD0E5370083A83E /* CreateEventViewController.swift */; };
+		3C5C88971CCCA29200622643 /* LoginExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5C88961CCCA29200622643 /* LoginExtensions.swift */; };
+		3C5C889B1CCCA30A00622643 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5C88981CCCA30A00622643 /* FBSDKCoreKit.framework */; };
+		3C5C889C1CCCA30A00622643 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5C88991CCCA30A00622643 /* FBSDKLoginKit.framework */; };
+		3C5C889D1CCCA30A00622643 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5C889A1CCCA30A00622643 /* FBSDKShareKit.framework */; };
+		3C5C889E1CCCAB1100622643 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09AC4601C9F32E000F43F75 /* Assets.xcassets */; };
+		3C5C88BC1CCCAD4800622643 /* back camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88A31CCCAD4800622643 /* back camera.png */; };
+		3C5C88BD1CCCAD4800622643 /* camera button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88A41CCCAD4800622643 /* camera button.png */; };
+		3C5C88BF1CCCAD4800622643 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88A61CCCAD4800622643 /* Clock.png */; };
+		3C5C88C01CCCAD4800622643 /* corner triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88A71CCCAD4800622643 /* corner triangle.png */; };
+		3C5C88C11CCCAD4800622643 /* Create Event Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88A81CCCAD4800622643 /* Create Event Button.png */; };
+		3C5C88C21CCCAD4800622643 /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88A91CCCAD4800622643 /* delete_button.png */; };
+		3C5C88C31CCCAD4800622643 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88AA1CCCAD4800622643 /* discover.png */; };
+		3C5C88C51CCCAD4800622643 /* front camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88AC1CCCAD4800622643 /* front camera.png */; };
+		3C5C88C61CCCAD4800622643 /* gear_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88AD1CCCAD4800622643 /* gear_icon.png */; };
+		3C5C88C71CCCAD4800622643 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88AE1CCCAD4800622643 /* Icon-60@2x.png */; };
+		3C5C88C81CCCAD4800622643 /* logo_360.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88AF1CCCAD4800622643 /* logo_360.png */; };
+		3C5C88C91CCCAD4800622643 /* orangeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B01CCCAD4800622643 /* orangeBackground.png */; };
+		3C5C88CA1CCCAD4800622643 /* PurpleCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B11CCCAD4800622643 /* PurpleCircle.png */; };
+		3C5C88CB1CCCAD4800622643 /* redBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B21CCCAD4800622643 /* redBackground.png */; };
+		3C5C88CC1CCCAD4800622643 /* report_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B31CCCAD4800622643 /* report_button.png */; };
+		3C5C88CD1CCCAD4800622643 /* report2_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B41CCCAD4800622643 /* report2_button.png */; };
+		3C5C88CE1CCCAD4800622643 /* save_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B51CCCAD4800622643 /* save_button.png */; };
+		3C5C88CF1CCCAD4800622643 /* tealBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B61CCCAD4800622643 /* tealBackground.png */; };
+		3C5C88D01CCCAD4800622643 /* triangle-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B71CCCAD4800622643 /* triangle-512.png */; };
+		3C5C88D11CCCAD4800622643 /* Underline.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B81CCCAD4800622643 /* Underline.png */; };
+		3C5C88D21CCCAD4800622643 /* votearrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88B91CCCAD4800622643 /* votearrow.png */; };
+		3C5C88D31CCCAD4800622643 /* Weav Lines.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88BA1CCCAD4800622643 /* Weav Lines.png */; };
+		3C5C88D41CCCAD4800622643 /* WeavLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88BB1CCCAD4800622643 /* WeavLogo.png */; };
+		3C5C88D81CCCAE4C00622643 /* bgimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88D51CCCAE4C00622643 /* bgimg.png */; };
+		3C5C88D91CCCAE4C00622643 /* camera icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88D61CCCAE4C00622643 /* camera icon.png */; };
+		3C5C88DA1CCCAE4C00622643 /* profile icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C5C88D71CCCAE4C00622643 /* profile icon.png */; };
+		3CF19E391CCEDF9C000ACEF5 /* RememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF19E381CCEDF9C000ACEF5 /* RememberViewController.swift */; };
+		3CF19E3B1CCEDFA4000ACEF5 /* RememberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF19E3A1CCEDFA4000ACEF5 /* RememberCell.swift */; };
+		3CF2003E1CB991FE004C985A /* WeavCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2003D1CB991FE004C985A /* WeavCollectionViewController.swift */; };
+		3CF200401CB993F1004C985A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2003F1CB993F1004C985A /* CollectionViewCell.swift */; };
+		3CF245B21CC7378D00F18F75 /* EnlargePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF245B11CC7378D00F18F75 /* EnlargePhotoViewController.swift */; };
+		3CF2D0C51CCCD79D001FB02D /* W + EAV.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF2D0C41CCCD79D001FB02D /* W + EAV.png */; };
+		3CF2D0C71CCCE087001FB02D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF2D0C61CCCE087001FB02D /* MapKit.framework */; };
+		3CF2FFF01CB07A4B004C985A /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF2FFEF1CB07A4B004C985A /* CustomSegmentedControl.swift */; };
+		3CF2FFF21CB0B2E9004C985A /* CustomEventViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF2FFF11CB0B2E9004C985A /* CustomEventViewCell.xib */; };
+		3CF30AEF1CCF16E900C6B750 /* swirl_pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF30AEE1CCF16E900C6B750 /* swirl_pattern.png */; };
+		AEFB72F80B069036B8D6D5A1 /* Pods_Weav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F837CB93B758B903AADE4FDD /* Pods_Weav.framework */; };
+		B4CD12FF1CB04CC90079919E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD12FE1CB04CC80079919E /* TabBarController.swift */; };
+		F057AFCF1CCCA2CF00C24BB8 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057AFCE1CCCA2CF00C24BB8 /* ProfileCollectionViewCell.swift */; };
+		F057AFD11CCCA56900C24BB8 /* SegmentedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057AFD01CCCA56900C24BB8 /* SegmentedCollectionViewCell.swift */; };
+		F072382E1C9E1B6200CB18EC /* tabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F072382D1C9E1B6200CB18EC /* tabBar.storyboard */; };
+		F07238301C9E225600CB18EC /* discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F072382F1C9E225600CB18EC /* discover.storyboard */; };
+		F07238321C9E225E00CB18EC /* experience.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07238311C9E225E00CB18EC /* experience.storyboard */; };
+		F07238341C9E226700CB18EC /* remember.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07238331C9E226700CB18EC /* remember.storyboard */; };
+		F072383C1C9E45D900CB18EC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072383B1C9E45D900CB18EC /* CameraViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		181242D41C9DE366001B8F28 /* Weav-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Weav-Bridging-Header.h"; sourceTree = "<group>"; };
+		181242D61C9E2A0D001B8F28 /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BWWalkthroughPageViewController.swift; path = "BWWalkthrough-master/BWWalkthrough/BWWalkthroughPageViewController.swift"; sourceTree = "<group>"; };
+		181242D81C9E2A27001B8F28 /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BWWalkthroughViewController.swift; path = "BWWalkthrough-master/BWWalkthrough/BWWalkthroughViewController.swift"; sourceTree = "<group>"; };
+		181242E61C9F314C001B8F28 /* lpBack.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = lpBack.mp4; path = Assets.xcassets/lpBack.mp4; sourceTree = "<group>"; };
+		1813CF8D1C91262600CC7B26 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		181926651CB1F4A500EFD092 /* Weav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weav.swift; sourceTree = "<group>"; };
+		181A81221CCC0A3C00C34E2A /* foggyAF.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = foggyAF.mp4; sourceTree = "<group>"; };
+		181A81241CCC10BE00C34E2A /* foggyAF_rotated.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = foggyAF_rotated.mp4; sourceTree = "<group>"; };
+		181A81261CCC119600C34E2A /* clump.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = clump.mp4; sourceTree = "<group>"; };
+		181A81281CCC123C00C34E2A /* clump_rotated.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = clump_rotated.mp4; sourceTree = "<group>"; };
+		182235131C87FF4500C4D41A /* Weav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weav.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		182235161C87FF4500C4D41A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		182235181C87FF4500C4D41A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1822351B1C87FF4500C4D41A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		182235201C87FF4500C4D41A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		182235221C87FF4500C4D41A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C320B261CB03C6A0027E236 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		3C320B2A1CB06B0A0027E236 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		3C320B2C1CB06B210027E236 /* EventMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMapViewController.swift; sourceTree = "<group>"; };
+		3C3AA9251CD0B1D60083A83E /* cancelImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelImage.png; sourceTree = "<group>"; };
+		3C3AA92C1CD0E31C0083A83E /* BackgroundVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundVid.mp4; sourceTree = "<group>"; };
+		3C3AA92E1CD0E3690083A83E /* WeavOmbreBackground8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeavOmbreBackground8.png; sourceTree = "<group>"; };
+		3C3AA9301CD0E3AC0083A83E /* White Weav Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "White Weav Logo.png"; sourceTree = "<group>"; };
+		3C3AA9321CD0E5370083A83E /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		3C5C88961CCCA29200622643 /* LoginExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginExtensions.swift; sourceTree = "<group>"; };
+		3C5C88981CCCA30A00622643 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3C5C88991CCCA30A00622643 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3C5C889A1CCCA30A00622643 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		3C5C88A31CCCAD4800622643 /* back camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back camera.png"; sourceTree = "<group>"; };
+		3C5C88A41CCCAD4800622643 /* camera button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera button.png"; sourceTree = "<group>"; };
+		3C5C88A61CCCAD4800622643 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
+		3C5C88A71CCCAD4800622643 /* corner triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "corner triangle.png"; sourceTree = "<group>"; };
+		3C5C88A81CCCAD4800622643 /* Create Event Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Create Event Button.png"; sourceTree = "<group>"; };
+		3C5C88A91CCCAD4800622643 /* delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_button.png; sourceTree = "<group>"; };
+		3C5C88AA1CCCAD4800622643 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		3C5C88AC1CCCAD4800622643 /* front camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front camera.png"; sourceTree = "<group>"; };
+		3C5C88AD1CCCAD4800622643 /* gear_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear_icon.png; sourceTree = "<group>"; };
+		3C5C88AE1CCCAD4800622643 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		3C5C88AF1CCCAD4800622643 /* logo_360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_360.png; sourceTree = "<group>"; };
+		3C5C88B01CCCAD4800622643 /* orangeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangeBackground.png; sourceTree = "<group>"; };
+		3C5C88B11CCCAD4800622643 /* PurpleCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PurpleCircle.png; sourceTree = "<group>"; };
+		3C5C88B21CCCAD4800622643 /* redBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redBackground.png; sourceTree = "<group>"; };
+		3C5C88B31CCCAD4800622643 /* report_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report_button.png; sourceTree = "<group>"; };
+		3C5C88B41CCCAD4800622643 /* report2_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report2_button.png; sourceTree = "<group>"; };
+		3C5C88B51CCCAD4800622643 /* save_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_button.png; sourceTree = "<group>"; };
+		3C5C88B61CCCAD4800622643 /* tealBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tealBackground.png; sourceTree = "<group>"; };
+		3C5C88B71CCCAD4800622643 /* triangle-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle-512.png"; sourceTree = "<group>"; };
+		3C5C88B81CCCAD4800622643 /* Underline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Underline.png; sourceTree = "<group>"; };
+		3C5C88B91CCCAD4800622643 /* votearrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = votearrow.png; sourceTree = "<group>"; };
+		3C5C88BA1CCCAD4800622643 /* Weav Lines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Weav Lines.png"; sourceTree = "<group>"; };
+		3C5C88BB1CCCAD4800622643 /* WeavLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeavLogo.png; sourceTree = "<group>"; };
+		3C5C88D51CCCAE4C00622643 /* bgimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgimg.png; sourceTree = "<group>"; };
+		3C5C88D61CCCAE4C00622643 /* camera icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera icon.png"; sourceTree = "<group>"; };
+		3C5C88D71CCCAE4C00622643 /* profile icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile icon.png"; sourceTree = "<group>"; };
+		3CF19E381CCEDF9C000ACEF5 /* RememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberViewController.swift; sourceTree = "<group>"; };
+		3CF19E3A1CCEDFA4000ACEF5 /* RememberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberCell.swift; sourceTree = "<group>"; };
+		3CF2003D1CB991FE004C985A /* WeavCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeavCollectionViewController.swift; sourceTree = "<group>"; };
+		3CF2003F1CB993F1004C985A /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3CF245B11CC7378D00F18F75 /* EnlargePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnlargePhotoViewController.swift; sourceTree = "<group>"; };
+		3CF2D0C41CCCD79D001FB02D /* W + EAV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "W + EAV.png"; sourceTree = "<group>"; };
+		3CF2D0C61CCCE087001FB02D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3CF2FFEF1CB07A4B004C985A /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSegmentedControl.swift; path = ../CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		3CF2FFF11CB0B2E9004C985A /* CustomEventViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomEventViewCell.xib; sourceTree = "<group>"; };
+		3CF30AEE1CCF16E900C6B750 /* swirl_pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swirl_pattern.png; sourceTree = "<group>"; };
+		5BB7FDCE80D7055545A9DAE3 /* Pods-Weav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weav.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weav/Pods-Weav.debug.xcconfig"; sourceTree = "<group>"; };
+		B4CD12FE1CB04CC80079919E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C072643F225EC6BF68B8C4F0 /* Pods-Weav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weav.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weav/Pods-Weav.release.xcconfig"; sourceTree = "<group>"; };
+		F057AFCE1CCCA2CF00C24BB8 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		F057AFD01CCCA56900C24BB8 /* SegmentedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCollectionViewCell.swift; sourceTree = "<group>"; };
+		F072382D1C9E1B6200CB18EC /* tabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = tabBar.storyboard; sourceTree = "<group>"; };
+		F072382F1C9E225600CB18EC /* discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = discover.storyboard; sourceTree = "<group>"; };
+		F07238311C9E225E00CB18EC /* experience.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = experience.storyboard; sourceTree = "<group>"; };
+		F07238331C9E226700CB18EC /* remember.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = remember.storyboard; sourceTree = "<group>"; };
+		F072383B1C9E45D900CB18EC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		F09AC4601C9F32E000F43F75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F837CB93B758B903AADE4FDD /* Pods_Weav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		182235101C87FF4500C4D41A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CF2D0C71CCCE087001FB02D /* MapKit.framework in Frameworks */,
+				3C5C889D1CCCA30A00622643 /* FBSDKShareKit.framework in Frameworks */,
+				AEFB72F80B069036B8D6D5A1 /* Pods_Weav.framework in Frameworks */,
+				3C5C889B1CCCA30A00622643 /* FBSDKCoreKit.framework in Frameworks */,
+				3C5C889C1CCCA30A00622643 /* FBSDKLoginKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		181242D51C9E270B001B8F28 /* BWWalkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				181242D61C9E2A0D001B8F28 /* BWWalkthroughPageViewController.swift */,
+				181242D81C9E2A27001B8F28 /* BWWalkthroughViewController.swift */,
+			);
+			name = BWWalkthrough;
+			sourceTree = "<group>";
+		};
+		1813CF8C1C91260200CC7B26 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				3C5C88961CCCA29200622643 /* LoginExtensions.swift */,
+				182235181C87FF4500C4D41A /* ViewController.swift */,
+				1822351A1C87FF4500C4D41A /* Main.storyboard */,
+				1813CF8D1C91262600CC7B26 /* LandingViewController.swift */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		1822350A1C87FF4500C4D41A = {
+			isa = PBXGroup;
+			children = (
+				181242D41C9DE366001B8F28 /* Weav-Bridging-Header.h */,
+				182235151C87FF4500C4D41A /* Weav */,
+				182235141C87FF4500C4D41A /* Products */,
+				F305202494A47D2B7A5EAB3B /* Pods */,
+				DA18B0A7F067915A9158F6EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		182235141C87FF4500C4D41A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				182235131C87FF4500C4D41A /* Weav.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		182235151C87FF4500C4D41A /* Weav */ = {
+			isa = PBXGroup;
+			children = (
+				3C5C88981CCCA30A00622643 /* FBSDKCoreKit.framework */,
+				3C5C88991CCCA30A00622643 /* FBSDKLoginKit.framework */,
+				3C5C889A1CCCA30A00622643 /* FBSDKShareKit.framework */,
+				181926651CB1F4A500EFD092 /* Weav.swift */,
+				3C5C88A31CCCAD4800622643 /* back camera.png */,
+				3C5C88D51CCCAE4C00622643 /* bgimg.png */,
+				3C3AA92C1CD0E31C0083A83E /* BackgroundVid.mp4 */,
+				3C5C88D61CCCAE4C00622643 /* camera icon.png */,
+				3C3AA92E1CD0E3690083A83E /* WeavOmbreBackground8.png */,
+				3C3AA9251CD0B1D60083A83E /* cancelImage.png */,
+				3C5C88D71CCCAE4C00622643 /* profile icon.png */,
+				3C5C88A41CCCAD4800622643 /* camera button.png */,
+				3CF30AEE1CCF16E900C6B750 /* swirl_pattern.png */,
+				3C5C88A61CCCAD4800622643 /* Clock.png */,
+				3CF2D0C41CCCD79D001FB02D /* W + EAV.png */,
+				3C5C88A71CCCAD4800622643 /* corner triangle.png */,
+				3C5C88A81CCCAD4800622643 /* Create Event Button.png */,
+				3C5C88A91CCCAD4800622643 /* delete_button.png */,
+				3C5C88AA1CCCAD4800622643 /* discover.png */,
+				3C5C88AC1CCCAD4800622643 /* front camera.png */,
+				3C5C88AD1CCCAD4800622643 /* gear_icon.png */,
+				3C5C88AF1CCCAD4800622643 /* logo_360.png */,
+				3C3AA9301CD0E3AC0083A83E /* White Weav Logo.png */,
+				3C5C88B01CCCAD4800622643 /* orangeBackground.png */,
+				3C5C88B11CCCAD4800622643 /* PurpleCircle.png */,
+				3C5C88B21CCCAD4800622643 /* redBackground.png */,
+				3C5C88B31CCCAD4800622643 /* report_button.png */,
+				3C5C88B41CCCAD4800622643 /* report2_button.png */,
+				3C5C88B51CCCAD4800622643 /* save_button.png */,
+				3C5C88B61CCCAD4800622643 /* tealBackground.png */,
+				3C5C88B71CCCAD4800622643 /* triangle-512.png */,
+				3C5C88B81CCCAD4800622643 /* Underline.png */,
+				3C5C88B91CCCAD4800622643 /* votearrow.png */,
+				3C5C88BA1CCCAD4800622643 /* Weav Lines.png */,
+				3C5C88BB1CCCAD4800622643 /* WeavLogo.png */,
+				3CF2FFEF1CB07A4B004C985A /* CustomSegmentedControl.swift */,
+				182235161C87FF4500C4D41A /* AppDelegate.swift */,
+				3CF2FFF11CB0B2E9004C985A /* CustomEventViewCell.xib */,
+				F072382D1C9E1B6200CB18EC /* tabBar.storyboard */,
+				B4CD12FE1CB04CC80079919E /* TabBarController.swift */,
+				204C37E01CB1EF7A00DBAAF2 /* Temp Photos - delete after recep */,
+				F07238351C9E233500CB18EC /* Discover */,
+				F07238371C9E234900CB18EC /* Experience */,
+				F07238381C9E235700CB18EC /* Remember */,
+				181A81221CCC0A3C00C34E2A /* foggyAF.mp4 */,
+				181A81281CCC123C00C34E2A /* clump_rotated.mp4 */,
+				181A81261CCC119600C34E2A /* clump.mp4 */,
+				181A81241CCC10BE00C34E2A /* foggyAF_rotated.mp4 */,
+				181242E61C9F314C001B8F28 /* lpBack.mp4 */,
+				181242D51C9E270B001B8F28 /* BWWalkthrough */,
+				1822351F1C87FF4500C4D41A /* LaunchScreen.storyboard */,
+				F09AC4601C9F32E000F43F75 /* Assets.xcassets */,
+				3C5C88AE1CCCAD4800622643 /* Icon-60@2x.png */,
+				182235221C87FF4500C4D41A /* Info.plist */,
+				1813CF8C1C91260200CC7B26 /* Intro */,
+			);
+			path = Weav;
+			sourceTree = "<group>";
+		};
+		204C37E01CB1EF7A00DBAAF2 /* Temp Photos - delete after recep */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Temp Photos - delete after recep";
+			sourceTree = "<group>";
+		};
+		DA18B0A7F067915A9158F6EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CF2D0C61CCCE087001FB02D /* MapKit.framework */,
+				F837CB93B758B903AADE4FDD /* Pods_Weav.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F07238351C9E233500CB18EC /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				F072382F1C9E225600CB18EC /* discover.storyboard */,
+				3C3AA9321CD0E5370083A83E /* CreateEventViewController.swift */,
+				3C320B261CB03C6A0027E236 /* DiscoverViewController.swift */,
+				3C320B2A1CB06B0A0027E236 /* EventsViewController.swift */,
+				3C320B2C1CB06B210027E236 /* EventMapViewController.swift */,
+				3CF2003D1CB991FE004C985A /* WeavCollectionViewController.swift */,
+				3CF2003F1CB993F1004C985A /* CollectionViewCell.swift */,
+				3CF245B11CC7378D00F18F75 /* EnlargePhotoViewController.swift */,
+			);
+			name = Discover;
+			sourceTree = "<group>";
+		};
+		F07238371C9E234900CB18EC /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				F07238311C9E225E00CB18EC /* experience.storyboard */,
+				F072383B1C9E45D900CB18EC /* CameraViewController.swift */,
+			);
+			name = Experience;
+			sourceTree = "<group>";
+		};
+		F07238381C9E235700CB18EC /* Remember */ = {
+			isa = PBXGroup;
+			children = (
+				3CF19E3A1CCEDFA4000ACEF5 /* RememberCell.swift */,
+				3CF19E381CCEDF9C000ACEF5 /* RememberViewController.swift */,
+				F07238331C9E226700CB18EC /* remember.storyboard */,
+				F057AFCE1CCCA2CF00C24BB8 /* ProfileCollectionViewCell.swift */,
+				F057AFD01CCCA56900C24BB8 /* SegmentedCollectionViewCell.swift */,
+			);
+			name = Remember;
+			sourceTree = "<group>";
+		};
+		F305202494A47D2B7A5EAB3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BB7FDCE80D7055545A9DAE3 /* Pods-Weav.debug.xcconfig */,
+				C072643F225EC6BF68B8C4F0 /* Pods-Weav.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		182235121C87FF4500C4D41A /* Weav */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 182235251C87FF4500C4D41A /* Build configuration list for PBXNativeTarget "Weav" */;
+			buildPhases = (
+				DD6AAE20E913F05889F3998F /* Check Pods Manifest.lock */,
+				1822350F1C87FF4500C4D41A /* Sources */,
+				182235101C87FF4500C4D41A /* Frameworks */,
+				182235111C87FF4500C4D41A /* Resources */,
+				B197E7A086731F68AF06844B /* Embed Pods Frameworks */,
+				1926651BF432699BD906F0A6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Weav;
+			productName = Weav;
+			productReference = 182235131C87FF4500C4D41A /* Weav.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1822350B1C87FF4500C4D41A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Soccerball Squad";
+				TargetAttributes = {
+					182235121C87FF4500C4D41A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = N57JSDGF3N;
+					};
+				};
+			};
+			buildConfigurationList = 1822350E1C87FF4500C4D41A /* Build configuration list for PBXProject "Weav" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1822350A1C87FF4500C4D41A;
+			productRefGroup = 182235141C87FF4500C4D41A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				182235121C87FF4500C4D41A /* Weav */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		182235111C87FF4500C4D41A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F07238321C9E225E00CB18EC /* experience.storyboard in Resources */,
+				F07238341C9E226700CB18EC /* remember.storyboard in Resources */,
+				3C5C88CD1CCCAD4800622643 /* report2_button.png in Resources */,
+				3C5C88C91CCCAD4800622643 /* orangeBackground.png in Resources */,
+				3C5C88CB1CCCAD4800622643 /* redBackground.png in Resources */,
+				3C5C88D21CCCAD4800622643 /* votearrow.png in Resources */,
+				3C5C88C21CCCAD4800622643 /* delete_button.png in Resources */,
+				3C5C88D41CCCAD4800622643 /* WeavLogo.png in Resources */,
+				181242E81C9F314C001B8F28 /* lpBack.mp4 in Resources */,
+				3C5C889E1CCCAB1100622643 /* Assets.xcassets in Resources */,
+				3C5C88BF1CCCAD4800622643 /* Clock.png in Resources */,
+				3C3AA92F1CD0E3690083A83E /* WeavOmbreBackground8.png in Resources */,
+				3C5C88C81CCCAD4800622643 /* logo_360.png in Resources */,
+				3C5C88C71CCCAD4800622643 /* Icon-60@2x.png in Resources */,
+				181A81271CCC119600C34E2A /* clump.mp4 in Resources */,
+				3C5C88CE1CCCAD4800622643 /* save_button.png in Resources */,
+				3C3AA9311CD0E3AC0083A83E /* White Weav Logo.png in Resources */,
+				3C5C88C61CCCAD4800622643 /* gear_icon.png in Resources */,
+				3C5C88D91CCCAE4C00622643 /* camera icon.png in Resources */,
+				F072382E1C9E1B6200CB18EC /* tabBar.storyboard in Resources */,
+				3CF30AEF1CCF16E900C6B750 /* swirl_pattern.png in Resources */,
+				3C5C88BC1CCCAD4800622643 /* back camera.png in Resources */,
+				3C5C88CA1CCCAD4800622643 /* PurpleCircle.png in Resources */,
+				3C5C88C31CCCAD4800622643 /* discover.png in Resources */,
+				3C3AA92D1CD0E31C0083A83E /* BackgroundVid.mp4 in Resources */,
+				3C5C88CF1CCCAD4800622643 /* tealBackground.png in Resources */,
+				181A81231CCC0A3C00C34E2A /* foggyAF.mp4 in Resources */,
+				181A81251CCC10BE00C34E2A /* foggyAF_rotated.mp4 in Resources */,
+				182235211C87FF4500C4D41A /* LaunchScreen.storyboard in Resources */,
+				181A81291CCC123C00C34E2A /* clump_rotated.mp4 in Resources */,
+				3C3AA9261CD0B1D60083A83E /* cancelImage.png in Resources */,
+				3C5C88D81CCCAE4C00622643 /* bgimg.png in Resources */,
+				3C5C88BD1CCCAD4800622643 /* camera button.png in Resources */,
+				F07238301C9E225600CB18EC /* discover.storyboard in Resources */,
+				3C5C88D11CCCAD4800622643 /* Underline.png in Resources */,
+				3C5C88C51CCCAD4800622643 /* front camera.png in Resources */,
+				3C5C88CC1CCCAD4800622643 /* report_button.png in Resources */,
+				3CF2FFF21CB0B2E9004C985A /* CustomEventViewCell.xib in Resources */,
+				3C5C88D31CCCAD4800622643 /* Weav Lines.png in Resources */,
+				3CF2D0C51CCCD79D001FB02D /* W + EAV.png in Resources */,
+				3C5C88D01CCCAD4800622643 /* triangle-512.png in Resources */,
+				1822351C1C87FF4500C4D41A /* Main.storyboard in Resources */,
+				3C5C88C01CCCAD4800622643 /* corner triangle.png in Resources */,
+				3C5C88DA1CCCAE4C00622643 /* profile icon.png in Resources */,
+				3C5C88C11CCCAD4800622643 /* Create Event Button.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1926651BF432699BD906F0A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weav/Pods-Weav-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B197E7A086731F68AF06844B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weav/Pods-Weav-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD6AAE20E913F05889F3998F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1822350F1C87FF4500C4D41A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182235191C87FF4500C4D41A /* ViewController.swift in Sources */,
+				B4CD12FF1CB04CC90079919E /* TabBarController.swift in Sources */,
+				3CF19E3B1CCEDFA4000ACEF5 /* RememberCell.swift in Sources */,
+				3CF19E391CCEDF9C000ACEF5 /* RememberViewController.swift in Sources */,
+				F057AFCF1CCCA2CF00C24BB8 /* ProfileCollectionViewCell.swift in Sources */,
+				181242D71C9E2A0D001B8F28 /* BWWalkthroughPageViewController.swift in Sources */,
+				181242D91C9E2A27001B8F28 /* BWWalkthroughViewController.swift in Sources */,
+				3CF2003E1CB991FE004C985A /* WeavCollectionViewController.swift in Sources */,
+				3CF245B21CC7378D00F18F75 /* EnlargePhotoViewController.swift in Sources */,
+				3C5C88971CCCA29200622643 /* LoginExtensions.swift in Sources */,
+				1813CF8E1C91262600CC7B26 /* LandingViewController.swift in Sources */,
+				F057AFD11CCCA56900C24BB8 /* SegmentedCollectionViewCell.swift in Sources */,
+				181926661CB1F4A500EFD092 /* Weav.swift in Sources */,
+				182235171C87FF4500C4D41A /* AppDelegate.swift in Sources */,
+				3C320B271CB03C6A0027E236 /* DiscoverViewController.swift in Sources */,
+				F072383C1C9E45D900CB18EC /* CameraViewController.swift in Sources */,
+				3CF200401CB993F1004C985A /* CollectionViewCell.swift in Sources */,
+				3C3AA9331CD0E5370083A83E /* CreateEventViewController.swift in Sources */,
+				3CF2FFF01CB07A4B004C985A /* CustomSegmentedControl.swift in Sources */,
+				3C320B2D1CB06B210027E236 /* EventMapViewController.swift in Sources */,
+				3C320B2B1CB06B0A0027E236 /* EventsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1822351A1C87FF4500C4D41A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1822351B1C87FF4500C4D41A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1822351F1C87FF4500C4D41A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				182235201C87FF4500C4D41A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		182235231C87FF4500C4D41A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		182235241C87FF4500C4D41A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		182235261C87FF4500C4D41A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BB7FDCE80D7055545A9DAE3 /* Pods-Weav.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Weav",
+				);
+				INFOPLIST_FILE = Weav/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisa.weav;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weav-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		182235271C87FF4500C4D41A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C072643F225EC6BF68B8C4F0 /* Pods-Weav.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Weav",
+				);
+				INFOPLIST_FILE = Weav/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lisa.weav;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Weav-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1822350E1C87FF4500C4D41A /* Build configuration list for PBXProject "Weav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182235231C87FF4500C4D41A /* Debug */,
+				182235241C87FF4500C4D41A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		182235251C87FF4500C4D41A /* Build configuration list for PBXNativeTarget "Weav" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				182235261C87FF4500C4D41A /* Debug */,
+				182235271C87FF4500C4D41A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1822350B1C87FF4500C4D41A /* Project object */;
+}
